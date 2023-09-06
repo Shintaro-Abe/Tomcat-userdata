@@ -10,13 +10,13 @@ systemctl enable httpd
 dnf update
 dnf install -y java
 
-sudo -u ec2-user -i wget https://archive.apache.org/dist/tomcat/tomcat-10/v10.0.23/bin/apache-tomcat-10.0.23.tar.gz
-sudo -u ec2-user -i tar -zxvf apache-tomcat-10.0.23.tar.gz
-mv /home/ec2-user/apache-tomcat-10.0.23 /usr/local/src/apache-tomcat-10.0.23
-chown -R tomcat:tomcat /usr/local/src/apache-tomcat-10.0.23
+TOMCAT_VERSION=10.0.23
+sudo -u ec2-user -i wget https://archive.apache.org/dist/tomcat/tomcat-10/v${TOMCAT_VERSION}/bin/apache-tomcat-${TOMCAT_VERSION}.tar.gz
+sudo -u ec2-user -i tar -zxvf apache-tomcat-${TOMCAT_VERSION}.tar.gz
+mv /home/ec2-user/apache-tomcat-${TOMCAT_VERSION} /usr/local/src/apache-tomcat-${TOMCAT_VERSION}
+chown -R tomcat:tomcat /usr/local/src/apache-tomcat-${TOMCAT_VERSION}
 
-ln -s /usr/local/src/apache-tomcat-10.0.23 /usr/local/src/tomcat
-chown -R tomcat:tomcat /usr/local/src/tomcat
+ln -s /usr/local/src/apache-tomcat-${TOMCAT_VERSION} /usr/local/src/tomcat
 
 service_content="[Unit]
 Description=Tomcat Web Server
