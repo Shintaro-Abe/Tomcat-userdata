@@ -1,4 +1,4 @@
-# tomcat-userdata
+# Tomcat-userdata
 ## 使用について
 * __AmazonLinux2023対応。__
 * __EC2のインスタンスプロファイルにIAMロールを設定。__
